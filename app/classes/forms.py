@@ -12,6 +12,15 @@ class ProfileForm(FlaskForm):
     lname = StringField('Last Name', validators=[DataRequired()]) 
     image = FileField("Image") 
     submit = SubmitField('Post')
+    role = SelectField('Role', choices=[("Teacher","Teacher"),("Student","Student")])
+
+    favorite_Food = SelectField('food', choices=[('tacos', 'tacos'), ('burritos', 'burritos')])
+
+class GameForm(FlaskForm):
+    name = StringField('Game Name', validators=[DataRequired()])
+    price = IntegerField('Game Price', validators=[DataRequired()])
+    age = IntegerField('Game Age')
+    submit = SubmitField('Game')
 
 class BlogForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()])

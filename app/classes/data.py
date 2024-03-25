@@ -34,7 +34,9 @@ class User(UserMixin, Document):
     image = FileField()
     prononuns = StringField()
     roles = ListField(ReferenceField("Role"))
+    role = StringField()
 
+    favorite_Food = StringField()
     meta = {
         'ordering': ['lname','fname']
     }
@@ -51,6 +53,17 @@ class User(UserMixin, Document):
         else:
             flash(f"That page requires the {name} role.")
             return False
+
+class Videogame(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    name = StringField()
+    price = IntField()
+    age = IntField()
+    create_date = DateTimeField(defaultdefault=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+    meta = {
+        'ordering': ['-createdate']
+    }
 
 class Role(RoleMixin, Document):
     # The RoleMixin requires this field to be named "name"
@@ -114,3 +127,5 @@ class Clinic(Document):
     meta = {
         'ordering': ['-createdate']
     }
+
+

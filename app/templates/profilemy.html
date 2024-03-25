@@ -22,7 +22,8 @@
             Google User Name: {{current_user.gname}} <br>
         {% endif %}
         Email: {{current_user.email}} <br>
-        Roles: 
+        Roles: {{current_user.role}} <br>
+        Food: {{current_user.favorite_Food}} <br>
         {% for role in current_user.roles %}
         <ul>
             <li>{{role.name.capitalize()}}</li>
