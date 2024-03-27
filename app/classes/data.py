@@ -35,6 +35,9 @@ class User(UserMixin, Document):
     prononuns = StringField()
     roles = ListField(ReferenceField("Role"))
     role = StringField()
+    level_M = StringField
+    level_R = StringField
+    score = 0
 
     favorite_Food = StringField()
     meta = {

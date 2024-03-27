@@ -35,7 +35,9 @@ def profileEdit():
             lname = form.lname.data,
             fname = form.fname.data,
             role = form.role.data,
-            favorite_Food = form.favorite_Food.data
+            favorite_Food = form.favorite_Food.data,
+            level_M = form.level_M,
+            level_R = form.level_R
 
         )
         # This updates the profile image

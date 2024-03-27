@@ -73,8 +73,7 @@ python -m pip install --upgrade pip
 (Mac users, ugh, type: python3 -m pip install --upgrade pip)
 
 # The next command will install all the packages that are listed in the "requirements.txt" file
-
-python -m pip install -r requirements.txt
+python -m pip install --upgrade pip
 (schMac users will type: python3 -m pip install -r requirements.txt)
 
 # if you get an error READ IT. If it says you don't have access you need to use the '--user'

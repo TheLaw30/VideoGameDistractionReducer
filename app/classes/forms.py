@@ -13,7 +13,8 @@ class ProfileForm(FlaskForm):
     image = FileField("Image") 
     submit = SubmitField('Post')
     role = SelectField('Role', choices=[("Teacher","Teacher"),("Student","Student")])
-
+    level_M = SelectField('Math Level', choices=[('1', '1'), ('2', '2'),('3', '3'), ('4', '4'),('5', '5')])
+    level_R = SelectField('Lexile Score', choices=[('1', '1'), ('2', '2'),('3', '3'), ('4', '4'),('5', '5')])
     favorite_Food = SelectField('food', choices=[('tacos', 'tacos'), ('burritos', 'burritos')])
 
 class GameForm(FlaskForm):
