@@ -68,6 +68,15 @@ class Videogame(Document):
         'ordering': ['-createdate']
     }
 
+class Scoreboard(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    create_date = DateTimeField(defaultdefault=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+    meta = {
+        'ordering': ['-createdate']
+    }
+    ListOfHighScores = ListField()
+    TypeOfTest = StringField()
 class Role(RoleMixin, Document):
     # The RoleMixin requires this field to be named "name"
     name = StringField()
