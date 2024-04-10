@@ -9,3 +9,11 @@ def index():
 @app.route('/aboutus')
 def aboutus():
     return render_template('aboutus.html')
+
+@app.route('/start_game')
+def startgame():
+    return render_template('start_game.html')
+
+# @app.route('/start_game')
+# def startgame():
+#     return render_template('start_game.html')

@@ -14,7 +14,6 @@ def gameList():
      games = Videogame.objects()
      return render_template('games.html',games=games)
 
-
 @app.route('/game/<gameID>')
 @login_required
 def game(gameID):
