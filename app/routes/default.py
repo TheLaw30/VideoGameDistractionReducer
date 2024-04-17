@@ -29,6 +29,12 @@ def math_option1():
 @app.route('/z_math_option2')
 def math_option2():
     return render_template('z_math_option2.html')
+@app.route('/z_math_option1_of_option1')
+def Math_option1_of_option1():
+    return render_template('z_math_option1_of_option1.html')    
+@app.route('/z_math_option1_of_option2')
+def Math_option1_of_option2():
+    return render_template('z_math_option1_of_option2.html')  
 # @app.route('/start_game')
 # def startgame():
 #     return render_template('start_game.html')
