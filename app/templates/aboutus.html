@@ -1,86 +1,86 @@
-<!-- This is a blank template.  You can copy this to make a new template page. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
 
-{% extends 'base.html' %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
 
-{% block body %}
-<h1>ABOUT US!</h1>
+    <!--
+      This is the page head - it contains info the browser uses
+      Like the title, which appears on the browser tab but not inside the page
+      Further down you'll see the content that displays in the page
+    -->
+    <title>Hello World!</title>
 
-<p>Hello! we are a small group of 2 whoar eworking on an app that reduces the addictiveness of games</p>
-<img src="https://us.123rf.com/450wm/tiodwiyanto/tiodwiyanto2106/tiodwiyanto210600275/169573474-no-game-icon-game-theme-technology-theme-infographics-and-other-graphic-related-assets.jpg?ver=6" alt="" width="50" class="mb-3">
-<img src="">
-<h1> Lawrence Lu (He/Him)</h1>
-<img
-  src="https://cdn.glitch.global/037177cd-eb48-4ab1-9a48-b64bee9647a9/IMG-1201.jpg?v=1693242013531"
-  class="illustration"
-  alt="Editor illustration"
-  title="Click the image!"
-  height ="100"
-  width = "80"
-/>
-<div class="instructions">
-  
-<h3>
-Piano :O
-</h3>
-<pre>
-   | |   \
-   | |    \
-   | |     \___
-   | |         \
-   | |          \
-0     _|_|___________|
-/\/  /____|____________) 
-. /  \_|__________________| 
-|/__    | )(            )(
-| |\\  :| )(           )(</pre>
-<h2>Hello I am Addison</h2>
-<h2>Hello I am Luat</h2>
+    <!-- The website stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
 
-<div class="about-section">
-    <h1>About Us Page</h1>
-    <p>Some text about who we are and what we do.</p>
-    <p>Resize the browser window to see that this page is responsive by the way.</p>
-  </div>
-  
-  <h2 style="text-align:center">Our Team</h2>
-  <div class="row">
-    <div class="column">
-      <div class="card">
-        <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-        <div class="container">
-          <h2>Jane Doe</h2>
-          <p class="title">CEO & Founder</p>
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p>jane@example.com</p>
-          <p><button class="button">Contact</button></p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="column">
-      <div class="card">
-        <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
-        <div class="container">
-          <h2>Mike Ross</h2>
-          <p class="title">Art Director</p>
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p>mike@example.com</p>
-          <p><button class="button">Contact</button></p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="column">
-      <div class="card">
-        <img src="/w3images/team3.jpg" alt="John" style="width:100%">
-        <div class="container">
-          <h2>John Doe</h2>
-          <p class="title">Designer</p>
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p>john@example.com</p>
-          <p><button class="button">Contact</button></p>
-        </div>
+    <!-- The website JavaScript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <body style="background-color:powderblue;">
+    <div class="about-section">
+  <h1>About Us Page</h1>
+  <p>We are Oakland Tech seniors. For our capstone project, we chose to create an app about game addiction.</p>
+  <p>Resize the browser window to see that this page is responsive by the way.</p>
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="https://oakland.edu/Assets/Oakland/oumagazine/graphics/news/secs/2019/InformationTechnology_Kim_1280.jpg">
+      <div class="container">
+        <p class="title">Meet our Team</p>
+        <p>This is our capstone project. We are building an app about game addiction. Our game, primiarly, is to let the user test out their attention span and distraction methods used by the Gaming Industry.   </p>
       </div>
     </div>
   </div>
-{% endblock %}
+
+  <div class="column">
+    <div class="card">
+      <img src="https://media.licdn.com/dms/image/C5603AQHud_Ifk53acA/profile-displayphoto-shrink_800_800/0/1659080013140?e=2147483647&v=beta&t=aWbS6wGxmhkAyiwhL72ZHSpGYETq--bhkJbs1rT37HI" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2>Lawrence Lu</h2>
+        <p class="title">Code Programer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>s_lawrence.lu@ousd.org</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="https://media.licdn.com/dms/image/D5603AQEtUXj_nExHOA/profile-displayphoto-shrink_200_200/0/1689731669811?e=2147483647&v=beta&t=ObyJIEYMmadFDoZe49xMLbaNuqxX_8Jq-CdHuATVAWI" alt="John" style="width:100%">
+      <div class="container">
+        <h2>Addison Liang</h2>
+        <p class="title">Designer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>s_addison.liang@ousd.org</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="column">
+    <div class="card">
+      <img src="https://cdn.glitch.global/02938396-07d7-4705-a629-6a00218758cf/IMG_9279.jpg?v=1713805400534" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2>Luat Vo</h2>
+        <p class="title">Reviewer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>s_luat.vo@ousd.org</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  </body>
+</html>

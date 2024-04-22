@@ -41,6 +41,9 @@ def gameNew():
             name = form.name.data,
             price = form.price.data,
             age = form.age.data,
+            rating = form.age.data,
+            platform = form.platform.data,
+            comment = form.comment.data,
             author = current_user.id,
             modify_date = dt.datetime.utcnow
         )
