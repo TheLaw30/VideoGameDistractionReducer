@@ -3,15 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
     <title>Document</title>
 </head>
 <body>
     math
     <P></P>
-    WHat is 2+5
+    <py-script>
+        a = randint(1, 50)
+        b = randint(1, 50)
+        answer = a + b
+
+        question = "What is " + str(a) + " + " + str(b) + "?"
+        print(question)
+    </py-script>
+    <form>
+        <input type="text" name="ans">
+        <input type="submit" name="submit">
+    </form>
     <a href='/z_math_option1'><button>7</button></a>
     <a href='/z_start_game'><button>6</button></a>
-
 
 
 </body>
