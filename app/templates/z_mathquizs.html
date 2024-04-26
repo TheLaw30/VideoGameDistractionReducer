@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-4">
+        <h1 class="display-1">All Math Quiz Attempts</h1>
+    </div>
+    <div class="col">
+        <a href="/z_mathquiz/new" class="btn btn-primary btn-sm mt-5" role="button">New Attempt</a>
+    </div>
+</div>
+
+{% if z_mathquizs %}
+    {% for z_mathquiz in z_mathquizs %}
+        <div class="row border-bottom">
+            <div class="col-2">
+                {% if loop.index == 1 %}
+                <h3 class="display-5">Date</h3>
+                {% endif %}
+
+                <a href="/z_mathquiz/{{z_mathquiz.id}}">
+                    {{moment(z_mathquiz.create_date).calendar()}}
+                </a>
+            </div>
+            <div class="col-2">
+                {% if loop.index == 1 %}
+                <h3 class="display-5">User</h3>
+                {% endif %}
+                {{z_mathquiz.author.fname}} {{z_mathquiz.author.lname}}
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5">Subject</h3>
+                {% endif %}
+                {{z_mathquiz.subject}}
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <h1>No Math Quiz Attempts</h1>
+{% endif %}
+
+{% endblock %}

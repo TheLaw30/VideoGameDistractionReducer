@@ -5,3 +5,4 @@ from .user import *
 from .clinic import *
 from .roles import *
 from .game import *
+from .mathquiz import *

@@ -35,7 +35,7 @@ def z_mathquizList():
 @login_required
 def z_mathquiz(z_mathquizID):
     # retrieve the blog using the blogID
-    thisBlog = MathQuiz.objects.get(id=z_mathquizID)
+    thisMathQuiz = MathQuiz.objects.get(id=z_mathquizID)
     # If there are no comments the 'comments' object will have the value 'None'. Comments are 
     # related to blogs meaning that every comment contains a reference to a blog. In this case
     # there is a field on the comment collection called 'blog' that is a reference the Blog
@@ -43,7 +43,7 @@ def z_mathquiz(z_mathquizID):
     # the blog object (thisBlog in this case) to get all the comments.
 
     # Send the blog object and the comments object to the 'blog.html' template.
-
+    return render_template('z_mathquiz.html',z_mathquiz=thisMathQuiz)
 
 # This route will delete a specific blog.  You can only delete the blog if you are the author.
 # <blogID> is a variable sent to this route by the user who clicked on the trash can in the 
@@ -52,7 +52,7 @@ def z_mathquiz(z_mathquizID):
 @app.route('/z_mathquiz/delete/<z_mathquizID>')
 # Only run this route if the user is logged in.
 @login_required
-def blogDelete(z_mathquizID):
+def z_mathquizDelete(z_mathquizID):
     # retrieve the blog to be deleted using the blogID
     deleteMathQuiz = MathQuiz.objects.get(id=z_mathquizID)
     # check to see if the user that is making this request is the author of the blog.
@@ -120,17 +120,3 @@ def z_mathquizNew():
     # stored in the form object and are displayed on the form. take a look at blogform.html to 
     # see how that works.
     return render_template('z_mathquizform.html',form=form)
-
-
-    # Send the user to the blog form that is now filled out with the current information
-    # from the form.
-    return render_template('z_mathquizform.html',form=form)
-
-#####
-# the routes below are the CRUD for the comments that are related to the blogs. This
-# process is exactly the same as for blogs with one addition. Each comment is related to
-# a specific blog via a field on the comment called 'blog'. The 'blog' field contains a 
-# reference to the Blog document. See the @app.route('/blog/<blogID>') above for more details
-# about how comments are related to blogs.  Additionally, take a look at data.py to see how the
-# relationship is defined in the Blog and the Comment collections.
-

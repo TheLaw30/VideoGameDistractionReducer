@@ -14,6 +14,7 @@ class MathQuizForm(FlaskForm):
     question_3 = StringField('What is 51/17?')
     question_4 = StringField('What is 5^3?')
     question_5 = StringField("What is d/dx x^3?")    
+    submit = SubmitField('Submit')
 
 class ProfileForm(FlaskForm):
     fname = StringField('First Name', validators=[DataRequired()])
