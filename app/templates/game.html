@@ -119,7 +119,9 @@
             <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(game.author.image.read())}}">
         {% endif %}
            Price: {{game.price}} <br>
-           Age:  {{game.age}}
+           Age:  {{game.age}}<br>
+           Rating: {{game.rating}}<br>
+           Comment: {{game.comment}}
 
     </p>
     <a href="/game/list" class="btn btn-primary btn-sm" role="button">New Game</a>
@@ -141,7 +143,7 @@
         </p>
     {% endfor %}
     {% else %}
-        <h1 class="display-5">No Comments</h1>
+        
     {% endif %}
 {% else %}
     <h1 class="display-5">No Blog</h1>

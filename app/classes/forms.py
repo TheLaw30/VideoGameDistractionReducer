@@ -30,7 +30,8 @@ class GameForm(FlaskForm):
     name = StringField('Game Name', validators=[DataRequired()])
     price = IntegerField('Game Price', validators=[DataRequired()])
     age = IntegerField('Game Age')
-    
+    comment = StringField('Your comments', validators=[DataRequired()])
+    rating = IntegerField('Rate out of 5')
     submit = SubmitField('Game')
 
 

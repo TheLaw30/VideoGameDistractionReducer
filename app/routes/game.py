@@ -41,9 +41,8 @@ def gameNew():
             name = form.name.data,
             price = form.price.data,
             age = form.age.data,
-            rating = form.age.data,
-            platform = form.platform.data,
             comment = form.comment.data,
+            rating = form.rating.data,
             author = current_user.id,
             modify_date = dt.datetime.utcnow
         )
@@ -69,6 +68,8 @@ def gameEdit(gameID):
             name = form.name.data,
             price = form.price.data,
             age = form.age.data,
+            comment = form.comment.data,
+            rating = form.rating.data,
             modify_date = dt.datetime.utcnow
         )
         return redirect(url_for('game',gameID=gameID))
@@ -76,6 +77,8 @@ def gameEdit(gameID):
     form.name.data = editGame.name
     form.price.data = editGame.price
     form.age.data = editGame.age
+    form.comment.data = editGame.comment
+    form.rating.data = editGame.rating
 
     return render_template('gameform.html',form=form)
 
