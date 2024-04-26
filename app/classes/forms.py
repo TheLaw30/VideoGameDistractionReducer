@@ -2,10 +2,18 @@
 # and users fill them out.  Each form is an instance of a class. Forms are managed by the 
 # Flask-WTForms library.
 
+from random import randint
 from flask_wtf import FlaskForm
 import mongoengine.errors
 from wtforms.validators import URL, Email, DataRequired
 from wtforms import StringField, SubmitField, TextAreaField, IntegerField, SelectField, FileField, BooleanField
+
+class MathQuizForm(FlaskForm):
+    question_1 = StringField('What is 24+19?')
+    question_2 = StringField('What is 4 x 90?')
+    question_3 = StringField('What is 51/17?')
+    question_4 = StringField('What is 5^3?')
+    question_5 = StringField("What is d/dx x^3?")    
 
 class ProfileForm(FlaskForm):
     fname = StringField('First Name', validators=[DataRequired()])
