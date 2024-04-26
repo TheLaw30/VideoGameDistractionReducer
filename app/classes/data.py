@@ -21,6 +21,15 @@ from bson.objectid import ObjectId
 from flask_security import RoleMixin
 from functools import wraps
 
+class MathQuiz(Document):
+    question_1 = StringField()
+    question_2 = StringField()
+    question_3 = StringField()
+    question_4 = StringField()
+    question_5 = StringField()
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    start_time = DateTimeField(default=dt.datetime.utcnow)
+
 
 class User(UserMixin, Document):
     createdate = DateTimeField(defaultdefault=dt.datetime.utcnow)
