@@ -35,8 +35,7 @@ class User(UserMixin, Document):
     prononuns = StringField()
     roles = ListField(ReferenceField("Role"))
     role = StringField()
-    level_M = StringField
-    level_R = StringField
+    # leaderboard = ListField(ReferenceField("Role"))
     score = 0
 
     favorite_Food = StringField()
@@ -62,6 +61,8 @@ class Videogame(Document):
     name = StringField()
     price = IntField()
     age = IntField()
+    comment = StringField()
+    rating = IntField()
     create_date = DateTimeField(defaultdefault=dt.datetime.utcnow)
     modify_date = DateTimeField()
     meta = {

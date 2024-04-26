@@ -4,8 +4,8 @@ copy this one and then edit it. -->
 {% extends "base.html" %}
 
 {% block body %}
-        <h1>Form Page Title</h1>
-
+        <h1>Game Yelp review!!!</h1>
+<img src = "https://miro.medium.com/v2/resize:fit:1012/1*6mGFJh8XrCqOlBRRvf2Deg.png">
         <!--List all errors in a group at the top-->
         {% for field in form.errors %}
             {% for error in form.errors[field] %}
@@ -46,6 +46,25 @@ copy this one and then edit it. -->
                 <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
             <br>
+            {{ form.hidden_tag() }}
+            
+            {{ form.comment.label }} <br>
+            {{ form.comment(size=64) }}
+            <!--List the errors for this field-->
+            {% for error in form.comment.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <br>
+            {{ form.hidden_tag() }}
+            
+            {{ form.rating.label }} <br>
+            {{ form.rating(size=64) }}
+            <!--List the errors for this field-->
+            {% for error in form.rating.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <br>
+        -->
             {{form.submit()}}
         </form>
         
