@@ -2,28 +2,28 @@
 
 {% block body %}
 
-{% if mathquiz %}
-    {{moment(blog.create_date).calendar()}} by {{blog.author.fname}} {{blog.author.lname}} 
-    {% if blog.modifydate %}
-        modified {{moment(blog.modifydate).calendar()}}
+{% if z_mathquiz %}
+    {{moment(z_mathquiz.create_date).calendar()}} by {{z_mathquiz.author.fname}} {{z_mathquiz.author.lname}} 
+    {% if z_mathquiz.modifydate %}
+        modified {{moment(z_mathquiz.modifydate).calendar()}}
     {% endif %}
     <br>
-    {% if blog.author == current_user %}
-        <a data-toggle="tooltip" data-placement="top" title="Delete Blog" href="/blog/delete/{{blog.id}}">
+    {% if z_mathquiz.author == current_user %}
+        <a data-toggle="tooltip" data-placement="top" title="Delete Math Quiz Attempt" href="/blog/delete/{{blog.id}}">
             <img width="40" class="bottom-image" src="/static/delete.png">
-        </a>
-        <a data-toggle="tooltip" data-placement="top" title="Edit Blog" href="/blog/edit/{{blog.id}}">
-            <img width="40" class="bottom-image" src="/static/edit.png">
         </a>
     {% endif %}
 
-    <h1 class="display-5">{{blog.subject}}</h1>
+    <h1 class="display-5">{{z_mathquiz.subject}}</h1>
     <p class="fs-3 text-break">
-        {% if blog.author.image %}
+        {% ifz_mathquiz.author.image %}
             <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(blog.author.image.read())}}">
         {% endif %}
-            {{blog.content}} <br>
-            {{blog.tag}}
+            What is {{z_mathquiz.question_1}} <br>
+            What is {{z_mathquiz.question_2}} <br>
+            What is {{z_mathquiz.question_3}} <br>
+            What is {{z_mathquiz.question_4}} <br>
+            What is {{z_mathquiz.question_5}}
 
     </p>
     <a href="/comment/new/{{blog.id}}" class="btn btn-primary btn-sm" role="button">New Comment</a>

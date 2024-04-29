@@ -20,7 +20,7 @@ def reading():
 
 @app.route('/z_math')
 def math():
-    return render_template('z_math.html')
+    return render_template('/')
 
 @app.route('/z_math_option1')
 def math_option1():
