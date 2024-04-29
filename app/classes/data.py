@@ -27,7 +27,7 @@ class MathQuiz(Document):
     question_3 = StringField()
     question_4 = StringField()
     question_5 = StringField()
-    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    # author = ReferenceField('User',reverse_delete_rule=CASCADE) 
     start_time = DateTimeField(default=dt.datetime.utcnow)
 
 
