@@ -5,15 +5,25 @@
 from random import randint
 from flask_wtf import FlaskForm
 import mongoengine.errors
-from wtforms.validators import URL, Email, DataRequired
+from wtforms.validators import URL, Email, DataRequired, EqualTo
 from wtforms import StringField, SubmitField, TextAreaField, IntegerField, SelectField, FileField, BooleanField
 
+
+a = randint(-50,50)
+b = randint(1,10)
+c = randint(-2,2)
+d = randint(-30, 30)
+e = randint(-5,5)
+
 class MathQuizForm(FlaskForm):
-    question_1 = StringField('What is 24+19?')
-    question_2 = StringField('What is 4 x 90?')
-    question_3 = StringField('What is 51/17?')
-    question_4 = StringField('What is 5^3?')
-    question_5 = StringField("What is d/dx x^3?")    
+    ans_1 = a + b
+    ans_2 = c * d
+    question_1 = IntegerField('What is ' + str(a) + "+" + str(b) + '?', validators=[EqualTo(ans_1, 'Answer is incorrect')])
+    question_2 = StringField('What is ' + str(c) + " x" + str(d) + '?', validators=[EqualTo(ans_2, 'Answer is incorrect')])
+    question_3 = StringField('What is ' + str(e) + "^" + str(e) + '?', validators=[EqualTo(int(e^e), 'Answer is incorrect')])
+    question_4 = StringField('What is ' + str(b) + "/" + str(c) + '?', validators=[EqualTo(int(b/c), 'Answer is incorrect')])
+    question_5 = StringField('What is d/dx x^' + str(e) + '?', validators=[DataRequired()])    
+    
     submit = SubmitField('Submit')
 
 class ProfileForm(FlaskForm):
