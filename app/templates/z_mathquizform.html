@@ -15,7 +15,7 @@
             </p>
             <p>
                 {{ form.question_2.label }} <br>
-                {{ form.question_2(cols=64, rows=10) }}
+                {{ form.question_2(cols=64) }}
                 <!--List the errors for this field-->
                 {% for error in form.question_2.errors %}
                     <span style="color: red;">[{{ error }}]</span>
