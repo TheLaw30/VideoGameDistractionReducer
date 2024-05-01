@@ -22,7 +22,6 @@ from flask_security import RoleMixin
 from functools import wraps
 
 
-
 class User(UserMixin, Document):
     createdate = DateTimeField(defaultdefault=dt.datetime.utcnow)
     gid = StringField(sparse=True, unique=True)
@@ -56,6 +55,7 @@ class User(UserMixin, Document):
         else:
             flash(f"That page requires the {name} role.")
             return False
+
 
 class MathQuiz(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE)

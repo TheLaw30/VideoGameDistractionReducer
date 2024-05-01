@@ -124,10 +124,10 @@
            Comment: {{game.comment}}
 
     </p>
-    <a href="/game/list" class="btn btn-primary btn-sm" role="button">New Game</a>
+    <a href="/game/list" class="btn btn-primary btn-sm" role="button">New App</a>
 
     {% if comments %}
-    <h1 class="display-5">Games</h1>
+    <h1 class="display-5">Apps</h1>
     {% for comment in comments %}
         {% if current_user == comment.author %}
             <a href="/comment/delete/{{comment.id}}"><img width="20" src="/static/delete.png"></a> 
