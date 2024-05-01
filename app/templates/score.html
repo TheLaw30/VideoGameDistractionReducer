@@ -12,7 +12,7 @@
 </div>
 
 {% if games %}
-    {% for game in games %}
+    {% for score in ListOfScores %}
         <div class="row border-bottom">
             <div class="col-2">
                 {% if loop.index == 1 %}
@@ -39,6 +39,34 @@
     {% endfor %}
 {% else %}
     <h1>No Game</h1>
+    Seconds spent on page:&nbsp; <input id="seconds-spent" size="6" readonly="" />
+
+<script>(function(){"use strict";
+
+  var secondsSpentElement = document.getElementById("seconds-spent");
+  
+  requestAnimationFrame(function updateTimeSpent(){
+      var timeNow = performance.now();
+      
+      secondsSpentElement.value = round(timeNow/1000);
+      
+      requestAnimationFrame(updateTimeSpent);
+  });
+  var performance = window.performance, round = Math.round;
+  })();
+ 
+var startTime = (new Date()).getTime();
+
+window.onbeforeunload = function (event) {
+    var timeSpent = (new Date()).getTime() - startTime,
+        xmlhttp= new XMLHttpRequest();
+    xmlhttp.open("POST", "your_url");
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
+    xmlhttp.send(timeSpent);
+};
+
+  </script>
 {% endif %}
 
 {% endblock %}
