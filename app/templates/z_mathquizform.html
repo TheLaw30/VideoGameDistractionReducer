@@ -8,7 +8,7 @@
             {{ form.hidden_tag() }}
             <p>
                 {{ form.question_1.label }} <br>
-                {{ form.question_1(size=64) }}
+                {{ form.question_1(size=5) }}
                 <!--List the errors for this field-->
                 {% for error in form.question_1.errors %}
                     <span style="color: red;">[{{ error }}]</span>
@@ -16,7 +16,7 @@
             </p>
             <p>
                 {{ form.question_2.label }} <br>
-                {{ form.question_2(cols=64) }}
+                {{ form.question_2(size=5) }}
                 <!--List the errors for this field-->
                 {% for error in form.question_2.errors %}
                     <span style="color: red;">[{{ error }}]</span>
@@ -24,7 +24,7 @@
             </p>
             <p>
                 {{ form.question_3.label }} <br>
-                {{ form.question_3(size=64) }}
+                {{ form.question_3(size=5) }}
                 <!--List the errors for this field-->
                 {% for error in form.question_3.errors %}
                     <span style="color: red;">[{{ error }}]</span>
@@ -32,7 +32,7 @@
             </p>
             <p>
                 {{ form.question_4.label }} <br>
-                {{ form.question_4(size=64) }}
+                {{ form.question_4(size=5) }}
                 <!--List the errors for this field-->
                 {% for error in form.question_4.errors %}
                     <span style="color: red;">[{{ error }}]</span>
@@ -40,7 +40,7 @@
             </p>
             <p>
                 {{ form.question_5.label }} <br>
-                {{ form.question_5(size=64) }}
+                {{ form.question_5(size=3) }}
                 <!--List the errors for this field-->
                 {% for error in form.question_5.errors %}
                     <span style="color: red;">[{{ error }}]</span>
@@ -49,6 +49,7 @@
             <p>
                 {{form.submit()}}
             </p>
+
         </form>
         
 {% endblock %}

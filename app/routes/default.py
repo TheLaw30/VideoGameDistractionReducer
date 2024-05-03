@@ -55,3 +55,6 @@ def score():
 # @app.route('/start_game')
 # def startgame():
 #     return render_template('start_game.html')
+@app.route('/score')
+def mathquizlist():
+    return render_template('z_mathquiz.html')
