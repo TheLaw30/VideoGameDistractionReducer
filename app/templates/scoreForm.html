@@ -1,0 +1,53 @@
+
+{% extends "base.html" %}
+
+{% block body %}
+        <h1>App Yelp review!!!</h1>
+<img src = "https://miro.medium.com/v2/resize:fit:1012/1*6mGFJh8XrCqOlBRRvf2Deg.png">
+        <!--List all errors in a group at the top-->
+        {% for field in ScoreForm.errors %}
+            {% for error in ScoreForm.errors[field] %}
+                <div class="alert alert-error">
+                    <strong>Error!</strong>{{field}}: {{error}}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <form method=post>
+            <br>
+            {{ ScoreForm.hidden_tag() }}
+            
+            {{ ScoreForm.score.label }} <br>
+            {{ ScoreForm.score(size=64) }}
+
+            <!--List the errors for this field-->
+            {% for error in ScoreForm.score.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <br>
+            {{ ScoreForm.hidden_tag() }}
+            
+            {{ ScoreForm.HighScores.label }} <br>
+            {{ ScoreForm.HighScores(size=64) }}
+            <!--List the errors for this field-->
+            {% for error in form.HighScores.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <br>
+            {{ ScoreForm.hidden_tag() }}
+            
+            {{ ScoreForm.TypeOfTest.label }} <br>
+            {{ ScoreForm.TypeOfTest(size=64) }}
+            <!--List the errors for this field-->
+            {% for error in ScoreForm.TypeOfTest.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                <div ></div>
+            {% endfor %}
+            <br>
+            
+    
+            {{form.submit()}}
+        </form>
+        
+{% endblock %} 

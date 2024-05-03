@@ -11,7 +11,7 @@ from wtforms import StringField, SubmitField, TextAreaField, IntegerField, Selec
 
 a = randint(-50,50)
 b = randint(1,10)
-c = randint(-2,2)
+c = randint(1,2)
 d = randint(-30, 30)
 e = randint(-5,5)
 
@@ -25,6 +25,7 @@ class MathQuizForm(FlaskForm):
     question_5 = StringField('What is d/dx x^' + str(e) + '?', validators=[DataRequired()])    
     
     submit = SubmitField('Submit')
+
 
 class ProfileForm(FlaskForm):
     fname = StringField('First Name', validators=[DataRequired()])
@@ -63,3 +64,8 @@ class ClinicForm(FlaskForm):
     zipcode = StringField('Zipcode',validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class ScoreForm(FlaskForm):
+    score = 0
+    HighScores = StringField()
+    TypeOfTest = StringField()

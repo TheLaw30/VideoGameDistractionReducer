@@ -92,8 +92,10 @@ class Scoreboard(Document):
     meta = {
         'ordering': ['-createdate']
     }
-    ListOfHighScores = ListField()
+    score = 0
+    HighScores = StringField()
     TypeOfTest = StringField()
+    
 class Role(RoleMixin, Document):
     # The RoleMixin requires this field to be named "name"
     name = StringField()
