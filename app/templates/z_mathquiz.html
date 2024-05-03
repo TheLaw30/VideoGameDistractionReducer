@@ -19,11 +19,11 @@
         {% if z_mathquiz.author.image %}
             <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(z_mathquiz.author.image.read())}}">
         {% endif %}
-            1) {{z_mathquiz.question_1}} <br>
-            What is {{z_mathquiz.question_2}} <br>
-            What is {{z_mathquiz.question_3}} <br>
-            What is {{z_mathquiz.question_4}} <br>
-            What is {{z_mathquiz.question_5}}
+            1: {{z_mathquiz.question_1}} <br>
+            2: {{z_mathquiz.question_2}} <br>
+            3: {{z_mathquiz.question_3}} <br>
+            4: {{z_mathquiz.question_4}} <br>
+            5: {{z_mathquiz.question_5}}
 
     </p>
     <a href="/comment/new/{{z_mathquiz.id}}" class="btn btn-primary btn-sm" role="button">New Comment</a>

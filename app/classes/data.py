@@ -21,8 +21,6 @@ from bson.objectid import ObjectId
 from flask_security import RoleMixin
 from functools import wraps
 
-from app.classes.forms import ans_1, ans_2
-
 
 class User(UserMixin, Document):
     createdate = DateTimeField(defaultdefault=dt.datetime.utcnow)
@@ -94,8 +92,10 @@ class Scoreboard(Document):
     meta = {
         'ordering': ['-createdate']
     }
-    ListOfHighScores = ListField()
+    score = 0
+    HighScores = StringField()
     TypeOfTest = StringField()
+    
 class Role(RoleMixin, Document):
     # The RoleMixin requires this field to be named "name"
     name = StringField()

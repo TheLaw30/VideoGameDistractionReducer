@@ -15,8 +15,7 @@ c = randint(-3,-1)
 d = randint(1, 30)
 e = randint(1,5)
 f = randint(12,30)
-ans_1 = IntegerField(e**e)
-ans_2 = IntegerField(c * d)
+
 class MathQuizForm(FlaskForm):
     question_1 = SelectField('What is ' + str(a) + "+" + str(b) + '?', choices=[(c+e, c+e), (a+b, a+b),(e-a, e-a), (a+c, c+a),(a*b, a*b)])
     question_2 = SelectField('What is ' + str(c) + " x" + str(d) + '?', choices=[(c+e, c+e), (a*b, a*b),(e-a, e-a), (d*c, c*d),(a*b, a*b)])
@@ -25,6 +24,7 @@ class MathQuizForm(FlaskForm):
     question_5 = SelectField('What is the remainder of ' + str(f) + '/' + str(e) + '?', choices=[(e%d, e%d), (e/d, e/d), (e+a , e+a)])    
     
     submit = SubmitField('Submit')
+
 
 class ProfileForm(FlaskForm):
     fname = StringField('First Name', validators=[DataRequired()])
@@ -63,3 +63,8 @@ class ClinicForm(FlaskForm):
     zipcode = StringField('Zipcode',validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class ScoreForm(FlaskForm):
+    score = 0
+    HighScores = StringField()
+    TypeOfTest = StringField()

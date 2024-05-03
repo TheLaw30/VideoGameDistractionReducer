@@ -1,44 +1,49 @@
+
 {% extends 'base.html' %}
 
 {% block body %}
 
 <div class="row">
     <div class="col-4">
-        <h1 class="display-1">All Scores!!</h1>
+        <h1 class="display-1">All Scores</h1>
     </div>
     <div class="col">
         <a href="/z_start_game" class="btn btn-primary btn-sm mt-5" role="button">Play again?</a>
     </div>
 </div>
 
-{% if games %}
-    {% for score in ListOfScores %}
+{% if scores %}
+    {% for score in scores %}
         <div class="row border-bottom">
             <div class="col-2">
                 {% if loop.index == 1 %}
-                <h3 class="display-5">Date</h3>
+                <h3 class="display-5">Name</h3>
                 {% endif %}
 
-                <a href="/game/{{game.id}}">
-                    {{moment(game.create_date).calendar()}}
+                <a href="/score{{score.id}}">
+                    {{moment(score.create_date).calendar()}}
                 </a>
             </div>
             <div class="col-2">
                 {% if loop.index == 1 %}
                 <h3 class="display-5">User</h3>
                 {% endif %}
-                {{game.author.fname}} {{game.author.lname}}
+                {{score.author.fname}} {{score.author.lname}}
             </div>
             <div class="col">
                 {% if loop.index == 1 %}
-                    <h3 class="display-5">Name</h3>
+                    <h3 class="display-5">Subject</h3>
                 {% endif %}
-                {{game.name}}
+                {{score.score}}
             </div>
         </div>
+    
     {% endfor %}
 {% else %}
-    <h1>No Game</h1>
+    <h1>No Scores yet</h1>
+{% endif %}
+
+
     Seconds spent on page:&nbsp; <input id="seconds-spent" size="6" readonly="" />
 
 <script>(function(){"use strict";
@@ -67,6 +72,5 @@ window.onbeforeunload = function (event) {
 };
 
   </script>
-{% endif %}
 
 {% endblock %}
