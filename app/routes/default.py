@@ -49,13 +49,10 @@ def reading3():
 @app.route('/z_reading4')
 def reading4():
     return render_template('z_reading4.html')
-@app.route('/score')
-def score():
-    return render_template('score.html')
 
-@app.route('/scoreForm')
-def ScoreForm():
-    return render_template('scoreForm.html')
+
+
+
 # @app.route('/start_game')
 # def startgame():
 #     return render_template('start_game.html')

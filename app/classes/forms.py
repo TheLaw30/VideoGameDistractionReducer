@@ -66,6 +66,7 @@ class ClinicForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class ScoreForm(FlaskForm):
-    score = 0
+    myscore = IntegerField()
     HighScores = StringField()
     TypeOfTest = StringField()
+    submit = SubmitField('Submit')

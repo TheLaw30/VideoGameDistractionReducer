@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 
 {% block body %}
@@ -8,19 +7,31 @@
         <h1 class="display-1">All Scores</h1>
     </div>
     <div class="col">
-        <a href="/z_start_game" class="btn btn-primary btn-sm mt-5" role="button">Play again?</a>
+        <a href="/score/new" class="btn btn-primary btn-sm mt-5" role="button">New Score</a>
     </div>
 </div>
+<h1 class="display-5">Name: {{score.name}}</h1>
+<p class="fs-3 text-break">
+    {% if score.author.image %}
+        <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(score.author.image.read())}}">
+    {% endif %}
+       My Score: {{score.myscore}} <br>
+       High Scores:  {{score.HighScores}}<br>
+       Type of test: {{score.TypeOfTest}}<br>
+
+</p>
+<a href="/score/list" class="btn btn-primary btn-sm" role="button">New score</a>
+
 
 {% if scores %}
     {% for score in scores %}
         <div class="row border-bottom">
             <div class="col-2">
                 {% if loop.index == 1 %}
-                <h3 class="display-5">Name</h3>
+                <h3 class="display-5"></h3>
                 {% endif %}
 
-                <a href="/score{{score.id}}">
+                <a href="/score/{{score.id}}">
                     {{moment(score.create_date).calendar()}}
                 </a>
             </div>
@@ -32,45 +43,14 @@
             </div>
             <div class="col">
                 {% if loop.index == 1 %}
-                    <h3 class="display-5">Subject</h3>
+                    <h3 class="display-5">Score</h3>
                 {% endif %}
-                {{score.score}}
+                {{score.name}}
             </div>
         </div>
-    
     {% endfor %}
 {% else %}
-    <h1>No Scores yet</h1>
+    <h1>No App</h1>
 {% endif %}
-
-
-    Seconds spent on page:&nbsp; <input id="seconds-spent" size="6" readonly="" />
-
-<script>(function(){"use strict";
-
-  var secondsSpentElement = document.getElementById("seconds-spent");
-  
-  requestAnimationFrame(function updateTimeSpent(){
-      var timeNow = performance.now();
-      
-      secondsSpentElement.value = round(timeNow/1000);
-      
-      requestAnimationFrame(updateTimeSpent);
-  });
-  var performance = window.performance, round = Math.round;
-  })();
- 
-var startTime = (new Date()).getTime();
-
-window.onbeforeunload = function (event) {
-    var timeSpent = (new Date()).getTime() - startTime,
-        xmlhttp= new XMLHttpRequest();
-    xmlhttp.open("POST", "your_url");
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    var timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
-    xmlhttp.send(timeSpent);
-};
-
-  </script>
 
 {% endblock %}
