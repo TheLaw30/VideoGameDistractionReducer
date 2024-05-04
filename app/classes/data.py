@@ -22,7 +22,6 @@ from flask_security import RoleMixin
 from functools import wraps
 
 
-
 class User(UserMixin, Document):
     createdate = DateTimeField(defaultdefault=dt.datetime.utcnow)
     gid = StringField(sparse=True, unique=True)
@@ -62,11 +61,12 @@ class MathQuiz(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE)
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
-    question_1 = IntField()
+    question_1 = StringField()
     question_2 = StringField()
     question_3 = StringField()
     question_4 = StringField()
     question_5 = StringField()
+    
     meta = {
         'ordering': ['-createdate']
     }

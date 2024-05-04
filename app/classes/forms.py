@@ -10,19 +10,18 @@ from wtforms import StringField, SubmitField, TextAreaField, IntegerField, Selec
 
 
 a = randint(-50,50)
-b = randint(1,10)
-c = randint(1,2)
-d = randint(-30, 30)
-e = randint(-5,5)
+b = randint(-10,10)
+c = randint(-3,-1)
+d = randint(1, 30)
+e = randint(1,5)
+f = randint(12,30)
 
 class MathQuizForm(FlaskForm):
-    ans_1 = a + b
-    ans_2 = c * d
-    question_1 = IntegerField('What is ' + str(a) + "+" + str(b) + '?', validators=[EqualTo(ans_1, 'Answer is incorrect')])
-    question_2 = StringField('What is ' + str(c) + " x" + str(d) + '?', validators=[EqualTo(ans_2, 'Answer is incorrect')])
-    question_3 = StringField('What is ' + str(e) + "^" + str(e) + '?', validators=[EqualTo(int(e^e), 'Answer is incorrect')])
-    question_4 = StringField('What is ' + str(b) + "/" + str(c) + '?', validators=[EqualTo(int(b/c), 'Answer is incorrect')])
-    question_5 = StringField('What is d/dx x^' + str(e) + '?', validators=[DataRequired()])    
+    question_1 = SelectField('What is ' + str(a) + "+" + str(b) + '?', choices=[(c+e, c+e), (a+b, a+b),(e-a, e-a), (a+c, c+a),(a*b, a*b)])
+    question_2 = SelectField('What is ' + str(c) + " x" + str(d) + '?', choices=[(c+e, c+e), (a*b, a*b),(e-a, e-a), (d*c, c*d),(a*b, a*b)])
+    question_3 = SelectField('What is ' + str(e) + "^" + str(e) + '?', choices=[(c**e, c**e), (e**a, e**a),(e-a, e-a), (a+a, a+a),(e**e, e**e)])
+    question_4 = SelectField('What is ' + str(b) + "/" + str(c) + '?', choices=[(b/c, b/c), (a*b, a*b),(e/a, e/a), (d*e, d*e),(a/b, a/b)])
+    question_5 = SelectField('What is the remainder of ' + str(f) + '/' + str(e) + '?', choices=[(e%d, e%d), (e/d, e/d), (e+a , e+a)])    
     
     submit = SubmitField('Submit')
 
