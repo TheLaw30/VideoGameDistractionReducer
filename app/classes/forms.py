@@ -21,7 +21,7 @@ class MathQuizForm(FlaskForm):
     question_2 = SelectField('What is ' + str(c) + " x" + str(d) + '?', choices=[(c+e, c+e), (a*b, a*b),(e-a, e-a), (d*c, c*d),(a*b, a*b)])
     question_3 = SelectField('What is ' + str(e) + "^" + str(e) + '?', choices=[(c**e, c**e), (e**a, e**a),(e-a, e-a), (a+a, a+a),(e**e, e**e)])
     question_4 = SelectField('What is ' + str(b) + "/" + str(c) + '?', choices=[(b/c, b/c), (a*b, a*b),(e/a, e/a), (d*e, d*e),(a/b, a/b)])
-    question_5 = SelectField('What is the remainder of ' + str(f) + '/' + str(e) + '?', choices=[(e%d, e%d), (e/d, e/d), (e+a , e+a)])    
+    question_5 = SelectField('What is the remainder of ' + str(f) + '/' + str(e) + '?', choices=[(f%e, f%e), (e/d, e/d), (e+a , e+a)])    
     
     submit = SubmitField('Submit')
 
