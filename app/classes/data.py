@@ -36,7 +36,7 @@ class User(UserMixin, Document):
     roles = ListField(ReferenceField("Role"))
     role = StringField()
     # leaderboard = ListField(ReferenceField("Role"))
-    score = 0
+  
 
     favorite_Food = StringField()
     meta = {
@@ -85,14 +85,14 @@ class Videogame(Document):
         'ordering': ['-createdate']
     }
 
-class Scoreboard(Document):
+class Score(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
     create_date = DateTimeField(defaultdefault=dt.datetime.utcnow)
     modify_date = DateTimeField()
     meta = {
         'ordering': ['-createdate']
     }
-    score = 0
+    myscore = IntField()
     HighScores = StringField()
     TypeOfTest = StringField()
     

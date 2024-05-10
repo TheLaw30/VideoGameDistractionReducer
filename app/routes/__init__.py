@@ -6,4 +6,4 @@ from .clinic import *
 from .roles import *
 from .game import *
 from .mathquiz import *
-# from .score import *
+from .score import *
