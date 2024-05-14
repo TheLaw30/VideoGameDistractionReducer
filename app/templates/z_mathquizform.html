@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block body %}
-
-<form method=post>
+<div class="row">
+    <div class="col-2">
+    <form method=post>
     {{ form.hidden_tag() }}
     <p>
         {{ form.question_1.label }} <br>
@@ -47,7 +48,14 @@
     <p>
         {{form.submit()}}
     </p>
-
-    
+</div>
+    <div class="col-2">
+        <img src = "https://media1.tenor.com/m/Ifq14qUa2CkAAAAC/cats-in.gif" height=150" width="300">
+        <img src = "https://i.gifer.com/RhwL.gif" height=150" width="300">
+        <img src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4e873b6b-f5b2-4d04-8827-b72e88673bf8/d95bg6n-634ab7be-7ffc-4ab0-9e7d-eec348bc89bd.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzRlODczYjZiLWY1YjItNGQwNC04ODI3LWI3MmU4ODY3M2JmOFwvZDk1Ymc2bi02MzRhYjdiZS03ZmZjLTRhYjAtOWU3ZC1lZWMzNDhiYzg5YmQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.xJKEKb9qUzmEKahCcNN6HNTFBmun2vAphFsLkBp-DTY" height=150" width="300">
+        <img src = "https://www.gifcen.com/wp-content/uploads/2022/06/sad-spongebob-gif-9.gif" height=150" width="300">
+        <img src = "https://nurseslabs.com/wp-content/uploads/2015/03/reactiongifs-53.gif" height=150" width="300">
+    </div>
+    </div>
 </form>
 {% endblock %}
