@@ -35,6 +35,12 @@
                 {% endif %}
                 {{z_mathquiz.subject}}
             </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5">Score</h3>
+                {% endif %}
+                {{z_mathquiz.score}}
+            </div>
         </div>
     {% endfor %}
 {% else %}

@@ -19,11 +19,34 @@
         {% if z_mathquiz.author.image %}
             <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(z_mathquiz.author.image.read())}}">
         {% endif %}
-            Question 1: {{z_mathquiz.question_1}} <br>
-            Question 2: {{z_mathquiz.question_2}} <br>
-            Question 3: {{z_mathquiz.question_3}} <br>
-            Question 4: {{z_mathquiz.question_4}} <br>
-            Question 5: {{z_mathquiz.question_5}}
+        
+            <div class="row">
+                <div class="col-2">
+                    Question 1: {{z_mathquiz.question_1}} 
+                    <br> Correct Answer: {{answers[0]}}
+                    <br> <br>
+                    Question 2: {{z_mathquiz.question_2}}
+                    <br> Correct Answer: {{answers[1]}}
+                    <br><br>
+                    Question 3: {{z_mathquiz.question_3}}
+                    <br> Correct Answer: {{answers[2]}}
+                    <br><br>
+                    Question 4: {{z_mathquiz.question_4}}
+                    <br> Correct Answer: {{answers[3]}}
+                    <br><br>
+                    Question 5: {{z_mathquiz.question_5}}
+                    <br> Correct Answer: {{answers[4]}}
+                    <br><br>
+                    Score: {{score}}
+                </div>
+                <div class="col-2">
+                    {{correct[0]}} <br><br><br>
+                    {{correct[1]}} <br><br><br>
+                    {{correct[2]}} <br><br><br>
+                    {{correct[3]}} <br><br><br>
+                    {{correct[4]}} <br><br><br>
+                </div>
+            </div>
 
     </p>
     <a href="/comment/new/{{z_mathquiz.id}}" class="btn btn-primary btn-sm" role="button">New Comment</a>

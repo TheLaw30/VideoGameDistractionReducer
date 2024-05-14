@@ -41,9 +41,18 @@ def z_mathquiz(z_mathquizID):
     # there is a field on the comment collection called 'blog' that is a reference the Blog
     # document it is related to.  You can use the blogID to get the blog and then you can use
     # the blog object (thisBlog in this case) to get all the comments.
-
+    n = thisMathQuiz
+    answers = [n.question_1, n.question_2, n.question_3, n.question_4, n.question_5]
+    key = [n.a+n.b, n.c*n.d, n.e**n.e, n.b/n.c, n.f%n.e]
+    correct = []
+    for i, q in enumerate(answers):
+        if float(q) == float(key[i]):
+            correct.append('Correct')
+        else:
+            correct.append('Incorrect')
+    score = str(correct.count('Correct')*20) + '%'
     # Send the blog object and the comments object to the 'blog.html' template.
-    return render_template('z_mathquiz.html',z_mathquiz=thisMathQuiz)
+    return render_template('z_mathquiz.html',z_mathquiz=thisMathQuiz, score=score, correct=correct, answers=key)
 
 # This route will delete a specific blog.  You can only delete the blog if you are the author.
 # <blogID> is a variable sent to this route by the user who clicked on the trash can in the 
@@ -89,6 +98,16 @@ def z_mathquizNew():
     # validate_on_submit() is a method of the form object. 
     if form.validate_on_submit():
 
+        n = form
+        answers = [n.question_1, n.question_2, n.question_3, n.question_4, n.question_5]
+        key = [n.a+n.b, n.c*n.d, n.e**n.e, n.b/n.c, n.f%n.e]
+        correct = []
+        for i, q in enumerate(answers):
+            if q == key[i]:
+                correct.append('Correct')
+            else:
+                correct.append('Incorrect')
+        score = str(correct.count('Correct')*20) + '%'
         # This stores all the values that the user entered into the new blog form. 
         # Blog() is a mongoengine method for creating a new blog. 'newBlog' is the variable 
         # that stores the object that is the result of the Blog() method.  
@@ -100,20 +119,29 @@ def z_mathquizNew():
             question_3 = form.question_3.data,
             question_4 = form.question_4.data,
             question_5 = form.question_5.data,
+            a = form.a,
+            b = form.b,
+            c = form.c,
+            d = form.d,
+            e = form.e,
+            f = form.f,
+            score=score,
             author = current_user.id,
             # This sets the modifydate to the current datetime.
             modify_date = dt.datetime.utcnow
         )
         # This is a method that saves the data to the mongoDB database.
         newMathQuiz.save()
-
+        
         # Once the new blog is saved, this sends the user to that blog using redirect.
         # and url_for. Redirect is used to redirect a user to different route so that 
         # routes code can be run. In this case the user just created a blog so we want 
         # to send them to that blog. url_for takes as its argument the function name
         # for that route (the part after the def key word). You also need to send any
         # other values that are needed by the route you are redirecting to.
-        return redirect(url_for('z_mathquiz',z_mathquizID=newMathQuiz.id))
+        return redirect(url_for('z_mathquiz',z_mathquizID=newMathQuiz.id, score=score, correct=correct, answers=key))
+
+
 
     # if form.validate_on_submit() is false then the user either has not yet filled out
     # the form or the form had an error and the user is sent to a blank form. Form errors are 

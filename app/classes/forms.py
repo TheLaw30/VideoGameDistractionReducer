@@ -5,26 +5,25 @@
 from random import randint
 from flask_wtf import FlaskForm
 import mongoengine.errors
-from wtforms.validators import URL, Email, DataRequired, EqualTo
+from django.core.exceptions import ValidationError
+from wtforms.validators import URL, Email, DataRequired, EqualTo, InputRequired
 from wtforms import StringField, SubmitField, TextAreaField, IntegerField, SelectField, FileField, BooleanField
 
 
-a = randint(-50,50)
-b = randint(-10,10)
-c = randint(-3,-1)
-d = randint(1, 30)
-e = randint(1,5)
-f = randint(12,30)
-
 class MathQuizForm(FlaskForm):
+    a = randint(-50,50)
+    b = randint(-10,10)
+    c = randint(-3,-1)
+    d = randint(1, 30)
+    e = randint(1,5)
+    f = randint(12,30)
     question_1 = SelectField('What is ' + str(a) + "+" + str(b) + '?', choices=[(c+e, c+e), (a+b, a+b),(e-a, e-a), (a+c, c+a),(a*b, a*b)])
     question_2 = SelectField('What is ' + str(c) + " x" + str(d) + '?', choices=[(c+e, c+e), (a*b, a*b),(e-a, e-a), (d*c, c*d),(a*b, a*b)])
     question_3 = SelectField('What is ' + str(e) + "^" + str(e) + '?', choices=[(c**e, c**e), (e**a, e**a),(e-a, e-a), (a+a, a+a),(e**e, e**e)])
-    question_4 = SelectField('What is ' + str(b) + "/" + str(c) + '?', choices=[(b/c, b/c), (a*b, a*b),(e/a, e/a), (d*e, d*e),(a/b, a/b)])
+    question_4 = SelectField('What is ' + str(b) + "/" + str(c) + '?', choices=[(b/c, b/c), (a*b, a*b),(e/d, e/d), (d*e, d*e),(a/d, a/d)])
     question_5 = SelectField('What is the remainder of ' + str(f) + '/' + str(e) + '?', choices=[(f%e, f%e), (e/d, e/d), (e+a , e+a)])    
     
     submit = SubmitField('Submit')
-
 
 class ProfileForm(FlaskForm):
     fname = StringField('First Name', validators=[DataRequired()])

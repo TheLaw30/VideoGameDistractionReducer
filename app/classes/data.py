@@ -66,7 +66,13 @@ class MathQuiz(Document):
     question_3 = StringField()
     question_4 = StringField()
     question_5 = StringField()
-    
+    a = IntField()
+    b = IntField()
+    c = IntField()
+    d = IntField()
+    e = IntField()
+    f = IntField()
+    score = StringField()
     meta = {
         'ordering': ['-createdate']
     }
